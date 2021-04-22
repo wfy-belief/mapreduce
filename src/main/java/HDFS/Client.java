@@ -38,6 +38,15 @@ public class Client {
         //2、创建一个文件夹
         fs.mkdirs(new Path("file:///D:/Hadoop/project0/in/file/test/test"));
     }
+
+    @Test
+    public void test_put() throws IOException {
+        // 参数一：删除原数据 参数二：覆盖 参数三：源数据路径 目标地址路径
+        Path source = new Path("file:///D:/Hadoop/project0/in/file/input/1.txt");
+        Path target = new Path("file:///D:/Hadoop/project0/in/file/test/");
+        fs.copyFromLocalFile(false, true, source, target);
+    }
+
     @After
     public void close() throws IOException {
         //3、关闭资源
